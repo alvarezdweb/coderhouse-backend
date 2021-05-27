@@ -1,0 +1,23 @@
+{
+  "name": "coderhouse-backend",
+  "version": "1.0.0",
+  "description": "## Desafio-7",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alvarezdweb/coderhouse-backend.git"
+  },
+  "author": "Matias Alvarez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alvarezdweb/coderhouse-backend/issues"
+  },
+  "homepage": "https://github.com/alvarezdweb/coderhouse-backend#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
