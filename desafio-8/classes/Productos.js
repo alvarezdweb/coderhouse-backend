@@ -1,6 +1,6 @@
 class Productos {
     
-    #products
+    #products 
 
     constructor(products) {
         this.#products = products || [];
