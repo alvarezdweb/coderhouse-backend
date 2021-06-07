@@ -30,3 +30,20 @@ POST
 - Devuelve el producto incorporado. 
 ~~~
 
+## Desafio-9
+~~~
+Se suman a las rutas del desafío-8:
+
+PUT
+/api/productos/actualizar/:id
+- Devuelve el producto que fue actualizado.
+- Si producto.ID no existe devolverá {error : 'producto no encontrado'}
+
+DELETE
+/api/productos/borrar/:id
+- Devuelve el producto que fue borrado.
+- Si producto.ID no existe devolverá {error : 'producto no encontrado'}
+
+Se utilizo el middleware express.static para compartir public/index.html. Este contiene
+un formulario ACTION="POST".
+~~~
