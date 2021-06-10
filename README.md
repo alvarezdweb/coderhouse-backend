@@ -47,3 +47,13 @@ DELETE
 Se utilizo el middleware express.static para compartir public/index.html. Este contiene
 un formulario ACTION="POST".
 ~~~
+
+## Desafio-10
+~~~
+Se suma a las rutas del desafío-9:
+
+GET
+productos/vista/
+- Devuelve array de productos en una plantilla de handlebars con style de bootstrap.
+- Si no hay productos en la lista devolverá {error : 'no hay productos cargados'}
+~~~
