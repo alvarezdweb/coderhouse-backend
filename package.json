@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/alvarezdweb/coderhouse-backend#readme",
   "dependencies": {
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
-    "express-handlebars": "^5.3.2"
+    "express-handlebars": "^5.3.2",
+    "pug": "^3.0.2"
   }
 }

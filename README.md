@@ -57,3 +57,16 @@ productos/vista/
 - Devuelve array de productos en una plantilla de handlebars con style de bootstrap.
 - Si no hay productos en la lista devolverá {error : 'no hay productos cargados'}
 ~~~
+
+## Desafio-11
+~~~
+desafio-11-ejs: 
+    Se reemplazó el motor de plantillas handlebars por ejs.
+desafio-11-pug: 
+    Se reemplazó el motor de plantillas handlebars por pug.
+
+Habiendo experimentado con estos tres motores de plantillas preferiría usar para mi proyecto
+Handlebars. Handlebars conserva la estructura HTML y nos permite incluir lógica con "mustache
+syntax", desde mi punto de vista se puede obtener un código más ordenado y fácil de mantener.
+~~~
+

@@ -1,0 +1,22 @@
+extends index
+
+block vista
+    body
+        div(class="jumbotron")
+            h1="Vista de Productos"
+            br
+            if hayProductos
+                div(class="table-responsive")
+                    table(class="table table-dark")
+                        tr 
+                            th="Nombre"
+                            th="Precio"
+                            th="Foto"
+                        each prod in productos
+                            tr 
+                                td=prod.title
+                                td=prod.price
+                                td
+                                    img(width="50" src=prod.thumbnail alt="not found")
+            else 
+                h3(class="alert alert-warning")!="No se encontraron productos."
