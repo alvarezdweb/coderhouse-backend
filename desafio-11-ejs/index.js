@@ -21,7 +21,7 @@ app.use('/api/', router);
 app.use(viewRouter)
 app.use(express.static('public'));
 
-app.set("view engine", "pug");
+app.set("view engine", "ejs");
 app.set("views", "./views");
 
 const server = app.listen(PORT, () => {
