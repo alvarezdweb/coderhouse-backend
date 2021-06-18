@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="../style.css">
+    <title>Formulario de Ingreso de Productos</title>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <h1>Ingrese Producto</h1>
+        </div>
+        <form action="/api/productos/guardar" method="POST" onsubmit="addProduct(event, this)">
+            <div class="row">
+                <label for="" class="form-label">
+                    Nombre
+                </label>
+                <input id="title" type="text" name="title" class="form-control mb-3">
+            </div>
+            <div class="row">
+                <label for="" class="form-label">
+                    Precio
+                </label>
+                <input id="price" type="number" name="price" class="form-control mb-3">
+            </div>
+            <div class="row">
+                <label for="" class="form-label">
+                    Foto URL
+                </label>
+                <input id="thumbnail" type="text" name="thumbnail" class="form-control mb-3">
+            </div>
+            <div class="row">
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </div>
+        </form>
+        <div id="products" class="mt-5"></div>
+    </div>
+
+    <script src="../main.js"></script> 
+</body>
+
+</html>
