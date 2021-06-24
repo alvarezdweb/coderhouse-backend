@@ -70,3 +70,21 @@ Handlebars. Handlebars conserva la estructura HTML y nos permite incluir lógica
 syntax", desde mi punto de vista se puede obtener un código más ordenado y fácil de mantener.
 ~~~
 
+## Desafio-12
+~~~
+
+~~~
+
+## Desafio-13
+~~~
+
+~~~
+
+## Desafio-14
+~~~
+npm run ServerES6toJS5
+transpile ./server.es6.js to ./server.js
+
+npm run ServerTStoJS5
+transpile ./server.ts to ./dist/server.js
+~~~
