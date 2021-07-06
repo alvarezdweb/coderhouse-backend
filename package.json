@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "## Desafio-7",
   "main": "index.js",
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "ServerES6toJS5": "node_modules/.bin/babel ./desafio-14/server.es6.js -o ./desafio-14/server.js -w",
     "ServerTStoJS5": "./node_modules/.bin/tsc -w",

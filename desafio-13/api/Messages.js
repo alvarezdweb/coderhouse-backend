@@ -40,7 +40,7 @@ class Messages {
             })
             await fs.promises.writeFile('./storage/messages.txt',JSON.stringify(array));
         } catch (error) {
-            throw new Error('No se puede guardar el producto, ARCHIVO INEXISTENTE!.')
+            throw new Error('No se puede guardar el producto, ARCHIVO INEXISTENTE!.');
         }
     }
 }

@@ -25,6 +25,7 @@ router.get('/productos/listar/:id', (req, res) => {
 });
 
 router.post('/productos/guardar', (req, res) => {
+    console.log(req.body);
     const product = req.body;   
     productos.addProduct(product); 
     res.redirect('/')
