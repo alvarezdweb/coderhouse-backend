@@ -1,5 +1,6 @@
 import express from 'express';
 import Productos from '../api/Productos.js';
+import faker from 'faker';
 
 export const router = express.Router();
 export const viewRouter = express.Router();
@@ -15,11 +16,20 @@ viewRouter.get('/productos/vista', async (req, res) => {
 });
 
 viewRouter.get('/productos/vista-test', async (req, res) => {
-    clg
+    console.log(req.query)
+    const productsQuant = req.query.cant || 10;
+    const fakerProducts = [];
+    for(let i = 0; i<productsQuant;i++){
+        fakerProducts.push({
+            title: faker.commerce.product(),
+            price: faker.commerce.price(),
+            thumbnail: faker.image.image()
+        })
+    }
     const listOfProducts = await productos.getProducts();
     res.render("index.ejs", {
-        hayProductos: Array.isArray(listOfProducts),
-        productos: listOfProducts
+        hayProductos: Array.isArray(fakerProducts),
+        productos: fakerProducts
     })
 })
 
