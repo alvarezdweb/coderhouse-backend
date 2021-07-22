@@ -26,9 +26,10 @@ viewRouter.get('/productos/vista-test', async (req, res) => {
             thumbnail: faker.image.image()
         })
     }
+    console.log(fakerProducts.length)
     const listOfProducts = await productos.getProducts();
     res.render("index.ejs", {
-        hayProductos: Array.isArray(fakerProducts),
+        hayProductos: fakerProducts.length > 0,
         productos: fakerProducts
     })
 })
