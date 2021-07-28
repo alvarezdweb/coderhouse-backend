@@ -1,0 +1,22 @@
+{
+  "name": "desafio-15",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "faker": "^5.5.3",
+    "knex": "^0.95.6",
+    "mongoose": "^5.13.2",
+    "mysql": "^2.18.1",
+    "normalizr": "^3.6.1",
+    "sqlite3": "^5.0.2"
+  }
+}
