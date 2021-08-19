@@ -9,7 +9,7 @@
     "start": "node server.js",
     "prod":"forever start -w index.js",
     "pm2Fork":"pm2 start index.js --name='server1' --watch -- 8081",
-    "pm2Cluster":"pm2 start index.js --name='server2' --watch -i max -- 8083"
+    "pm2Cluster":"pm2 start index.js --name='server2' --watch -i max -- 8082"
   },
   "keywords": [],
   "author": "",
