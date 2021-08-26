@@ -1,0 +1,29 @@
+.table td, .table th {
+    vertical-align: middle;
+}
+h1 {
+    color: blue;
+}
+hr {
+    background-color: #ddd;
+}
+.jumbotron.index {
+    min-height: 100vh;
+}
+.jumbotron.login {
+    background-color: lightgreen
+    ;
+    height: 80px;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.jumbotron .greeting {
+    color: green;
+}
+
+.d-none {
+    display: none;
+}
