@@ -13,6 +13,34 @@ import passportLocal from 'passport-local';
 import { users } from './models/users.js';
 import bcrypt from 'bcrypt';
 import passportFacebook from 'passport-facebook';
+import nodemailer from 'nodemailer';
+import twilio  from 'twilio';
+
+
+// desafio-35
+const transporter = nodemailer.createTransport({
+    host: 'smtp.ethereal.email',
+    port: 587,
+    auth: {
+        user: 'declan.fahey13@ethereal.email',
+        pass: 'EUPnjeKqsWyua4znBV'
+    }
+});
+
+const gmailTransporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_PASS
+    }
+});
+
+const acountSID = 'ACac0181e1becf875d9172fd2e4bb268fc';
+const authToken = '43407c66d6f33e4ec99846545e9e11ce';
+const client = twilio(acountSID, authToken);
+
+
+const userData = {};
 
 const FACEBOOK_CLIENT_ID = "194233676083385";
 const FACEBOOK_CLIENT_SECRET = "18a6e2e015139eccdb101ec54346777a";
@@ -72,8 +100,37 @@ passport.use(new FacebookStrategy({
   profileFields: ['id', 'displayName', 'email', 'photos'],
   scope: ['email']
 }, function (accessToken, refreshToken, profile, done) {
-//   console.log(JSON.stringify(profile, null, 3));
-    console.log('login exitoso')
+
+    userData.name = profile.displayName;
+    userData.photo = profile.photos[0].value
+   
+    const mailLogin = {
+        from: 'servidor node',
+        to: 'mail@mail.com',
+        subject: `login - ${userData.name} - ${new Date()}`,
+        html: '<h1>hola</h1>'
+    }
+
+    transporter.sendMail( mailLogin, (err, info) => {
+        if(err) {
+            console.log(err);
+            return err
+        }
+        console.log(info);
+    });
+
+    const mailGmailLogin = {
+        from: 'servidor node',
+        to: 'alvarez.dweb@gmail.com',
+        subject: `login - ${userData.name} - ${new Date()}`,
+        html: '<h1>hola</h1>',
+        attachments: [
+            {
+                path: userData.photo
+            }
+        ]
+    }
+
   let userProfile = profile;
   return done(null, userProfile);
 }));
@@ -106,7 +163,22 @@ app.get('/username', (req, res) => {
 })
 
 app.get('/logout', (req, res) => {
-    console.log('user logout');
+    
+    const mailLogout = {
+        from: 'servidor node',
+        to: 'mail@mail.com',
+        subject: `logout - ${userData.name} - ${new Date()}`,
+        html: '<h1>hola</h1>'
+    }
+
+    transporter.sendMail( mailLogout, (err, info) => {
+        if(err) {
+            console.log(err);
+            return err
+        }
+        console.log(info);
+    });
+
     req.logout();
     res.sendFile(__dirname + '/public/login.html');
 }) 
@@ -131,6 +203,8 @@ app.get('/datos', (req, res) => {
 
 // ------------------------------------------------------
 
+
+
 io.on('connection', async (socket) => {
 
     const arrayMsg = await messages.getMessages();
@@ -144,7 +218,14 @@ io.on('connection', async (socket) => {
     });
 
     socket.on('new-message', async (data) => {
-        console.log('data', data)
+        if(data.text.includes('administrador')){
+            client.messages.create({
+                body: data.text,
+                from: '+12019034832',
+                to: '+541160303567'
+            }).then(msg => console.log(msg.sid))
+            .catch(console.log('error'))
+        }
             const newMsg = await messages.addMessage(data);
             io.sockets.emit('messages', await messages.getMessages());
     });
