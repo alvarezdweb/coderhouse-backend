@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="../style.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/normalizr@3.6.1/dist/normalizr.browser.min.js
+    "></script>
+    <title>Formulario de Ingreso de Productos</title>
+</head>
+
+<body>
+    <div id="logoutContainer" class="container mt-5 d-none">
+        <div class="jumbotron login">
+            <h4 id="logoutMsg" class="greeting"></h4>
+        </div>
+    </div>
+
+    <div id="mainContainer" class="container mt-5">
+        
+        <div class="jumbotron login">
+                <h4 id="greeting" class="greeting"></h4>
+                <button id="logout" class="btn btn-warning">Cerrar Sesion.</button>
+        </div>
+        <div class="jumbotron index">
+            <div class="row">
+                <h1>Ingrese Producto</h1>
+            </div>
+            <form action="/api/productos/guardar" method="POST" onsubmit="addProduct(event, this)">
+                <div class="row">
+                    <label for="" class="form-label">
+                        Nombre
+                    </label>
+                    <input id="title" type="text" name="title" class="form-control mb-3">
+                </div>
+                <div class="row">
+                    <label for="" class="form-label">
+                        Precio
+                    </label>
+                    <input id="price" type="number" name="price" class="form-control mb-3">
+                </div>
+                <div class="row">
+                    <label for="" class="form-label">
+                        Foto URL
+                    </label>
+                    <input id="thumbnail" type="text" name="thumbnail" class="form-control mb-3">
+                </div>
+                <div class="row">
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </div>
+            </form>
+            <div id="products" class="mt-5"></div>
+        </div>
+        <div class="jumbotron" id="centro-mensajes">
+            <h1>Centro de Mensajes</h1>
+            <br>
+            <input type="text" id="email" class="form-control w-50 my-2 mr-2" placeholder="Ingresá tu email">
+            <input type="text" id="name" class="form-control w-50 my-2 mr-2" placeholder="Ingresá tu nombre">
+            <input type="text" id="surname" class="form-control w-50 my-2 mr-2" placeholder="Ingresá tu apellido">
+            <input type="number" id="age" class="form-control w-50 my-2 mr-2" placeholder="Ingresá tu edad">
+            <hr>
+            <div id="messages"></div>
+        
+            <form class="form-inline mt-3" onsubmit="return addMessage(this)" autocomplete="off">
+                <input disabled type="text" id="texto" class="form-control my-2 mr-2" placeholder="Ingresá un mensaje...">
+                <input disabled id="enviar" class="btn btn-primary my-2" type="submit" value="Enviar!">
+            </form>
+        </div>
+    </div>
+
+    <script src="../main.js"></script> 
+    <script src="../chat.js"></script> 
+</body>
+
+</html>

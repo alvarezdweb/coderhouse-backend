@@ -1,0 +1,34 @@
+{
+  "name": "desafio-15",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "mocha index.test.js --timeout 10000",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "chai": "^4.3.4",
+    "connect-mongo": "^4.4.1",
+    "express-graphql": "^0.12.0",
+    "express-session": "^1.17.2",
+    "faker": "^5.5.3",
+    "graphql": "^15.5.3",
+    "knex": "^0.95.6",
+    "mongoose": "^5.13.2",
+    "mysql": "^2.18.1",
+    "normalizr": "^3.6.1",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "sqlite3": "^5.0.2",
+    "supertest": "^6.1.6"
+  },
+  "devDependencies": {
+    "mocha": "^9.1.1"
+  }
+}
